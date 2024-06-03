@@ -1,0 +1,75 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #000;  /* Black background */
+    font-family: sans-serif;
+    display: flex;
+    flex-direction: column;  /* Stack elements vertically */
+    justify-content: space-between;  /* Stretch content to top and bottom */
+    min-height: 100vh;  /* Set minimum height for full viewport */
+  }
+  
+  .container {
+    text-align: center;
+    padding: 2em;  /* Add some padding for the container */
+  }
+  
+  h1 {
+    color: #fff;  /* White text */
+    font-size: 3em;
+    margin-bottom: 2em;
+  }
+  
+  .stock-list {
+    list-style: none;  /* Remove default bullet points */
+    padding: 0;
+    margin: 0;
+    color: #fff;  /* White text for stocks */
+    display: flex;  /* Make the list a flexbox for horizontal arrangement */
+    flex-direction: column;  /* Stack list items vertically */
+  }
+  
+  .stock-list li {
+    margin-bottom: 0.5em;  /* Add spacing between list items */
+    display: flex;  /* Make each list item a flexbox */
+    /* No need for justification here, items will fill the available space */
+    width: 100%;  /* Stretch each item to full width */
+  }
+  
+  .stock-name,
+  .stock-price {
+    flex: 1;  /* Make names and prices take up equal space */
+    padding: 1em;  /* Add some padding for content within list items */
+  }
+  
+  .stock-name {
+    text-align: left;  /* Align stock names to the left */
+  }
+  
+  .stock-price {
+    text-align: right;  /* Align prices to the right */
+    font-family: monospace;  /* Use a monospaced font for consistent alignment */
+  }
+  
+  .navigation {
+    position: fixed;  /* Fix buttons to the bottom */
+    bottom: 0;  /* Place them at the bottom */
+    left: 50%;  /* Center horizontally */
+    transform: translateX(-50%);  /* Account for centering offset */
+    display: flex;
+    justify-content: space-between;
+    width: 80%;  /* Adjust width as needed */
+    padding: 1em;
+    background-color: #222;  /* Slightly darker background for buttons */
+  }
+  
+  button {
+    background-color: transparent;  /* Transparent buttons */
+    color: #fff;
+    padding: 1em 2em;
+    border: 1px solid #fff;  /* White border */
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;  /* Bold text for better readability */
+    transition: background-color
+  }  
