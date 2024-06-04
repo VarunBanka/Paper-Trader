@@ -1,75 +1,85 @@
 body {
-    margin: 0;
-    padding: 0;
-    background-color: #000;  /* Black background */
-    font-family: sans-serif;
-    display: flex;
-    flex-direction: column;  /* Stack elements vertically */
-    justify-content: space-between;  /* Stretch content to top and bottom */
-    min-height: 100vh;  /* Set minimum height for full viewport */
+  font-family: sans-serif;
+  margin: 0;
+  background-color: #222; /* Black background */
+  color: #fff; /* White text */
+}
+
+.container {
+  max-width: 800px;
+  margin: 50px auto;
+  text-align: center;
+}
+
+.stock-list {
+  list-style: none;
+  padding: 0;
+}
+
+.stock-list li {
+  margin: 1em 0;
+  cursor: pointer;
+}
+
+.stock-popup {
+  position: fixed;
+  top: 50%;
+  left: 50%; /* Initial left position (adjusted in media query) */
+  transform: translate(-50%, -50%); /* Maintain centering */
+  width: 600px; /* Adjust width as needed */
+  max-height: 80%; /* Set max-height for overflow prevention */
+  background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent black */
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Subtle shadow */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2em;
+  animation: popup-show 0.3s ease-in-out forwards;
+}
+
+.stock-popup h2 {
+  margin-bottom: 1em;
+}
+
+.stock-popup button {
+  width: 120px; /* Adjust width as needed */
+  height: 50px; /* Adjust height as needed */
+  background-color: #3498db; /* Blue button color */
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-bottom: 1em;
+  font-size: 16px;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.stock-popup button:hover {
+  background-color: #2980b9; /* Darker blue on hover */
+}
+
+@media only screen and (max-width: 768px) {
+  .stock-popup {
+    width: 90%; /* Adjust width for smaller screens */
+    left: 5%;  /* Move 5% to the left on mobile */
   }
-  
-  .container {
-    text-align: center;
-    padding: 2em;  /* Add some padding for the container */
+
+  .stock-popup button {
+    width: 80%; /* Adjust button width for smaller screens */
+    margin: 0.5em auto; /* Center buttons vertically on mobile */
   }
-  
-  h1 {
-    color: #fff;  /* White text */
-    font-size: 3em;
-    margin-bottom: 2em;
+
+  /* Optional media query for even smaller screens (e.g., below 480px) */
+  @media only screen and (max-width: 768px) and (max-width: 480px) {
+    .stock-popup button {
+      font-size: 14px; /* Adjust font size for very small screens */
+    }
   }
-  
-  .stock-list {
-    list-style: none;  /* Remove default bullet points */
-    padding: 0;
-    margin: 0;
-    color: #fff;  /* White text for stocks */
-    display: flex;  /* Make the list a flexbox for horizontal arrangement */
-    flex-direction: column;  /* Stack list items vertically */
-  }
-  
-  .stock-list li {
-    margin-bottom: 0.5em;  /* Add spacing between list items */
-    display: flex;  /* Make each list item a flexbox */
-    /* No need for justification here, items will fill the available space */
-    width: 100%;  /* Stretch each item to full width */
-  }
-  
-  .stock-name,
-  .stock-price {
-    flex: 1;  /* Make names and prices take up equal space */
-    padding: 1em;  /* Add some padding for content within list items */
-  }
-  
-  .stock-name {
-    text-align: left;  /* Align stock names to the left */
-  }
-  
-  .stock-price {
-    text-align: right;  /* Align prices to the right */
-    font-family: monospace;  /* Use a monospaced font for consistent alignment */
-  }
-  
-  .navigation {
-    position: fixed;  /* Fix buttons to the bottom */
-    bottom: 0;  /* Place them at the bottom */
-    left: 50%;  /* Center horizontally */
-    transform: translateX(-50%);  /* Account for centering offset */
-    display: flex;
-    justify-content: space-between;
-    width: 80%;  /* Adjust width as needed */
-    padding: 1em;
-    background-color: #222;  /* Slightly darker background for buttons */
-  }
-  
-  button {
-    background-color: transparent;  /* Transparent buttons */
-    color: #fff;
-    padding: 1em 2em;
-    border: 1px solid #fff;  /* White border */
-    border-radius: 5px;
-    cursor: pointer;
-    font-weight: bold;  /* Bold text for better readability */
-    transition: background-color
-  }  
+}
+
+@keyframes popup-show {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translate(0); }
+}
