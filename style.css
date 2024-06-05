@@ -11,7 +11,7 @@ body {
   text-align: center;
 }
 
-.stock-list {
+.stock-list, .portfolio ul {
   list-style: none;
   padding: 0;
 }
@@ -19,6 +19,14 @@ body {
 .stock-list li {
   margin: 1em 0;
   cursor: pointer;
+}
+
+.portfolio {
+  margin-top: 50px;
+}
+
+.portfolio h2 {
+  margin-bottom: 1em;
 }
 
 .stock-popup {
@@ -37,6 +45,7 @@ body {
   align-items: center;
   padding: 2em;
   animation: popup-show 0.3s ease-in-out forwards;
+  overflow-y: auto;
 }
 
 .stock-popup h2 {
@@ -72,7 +81,7 @@ body {
   }
 
   /* Optional media query for even smaller screens (e.g., below 480px) */
-  @media only screen and (max-width: 768px) and (max-width: 480px) {
+  @media only screen and (max-width: 480px) {
     .stock-popup button {
       font-size: 14px; /* Adjust font size for very small screens */
     }
