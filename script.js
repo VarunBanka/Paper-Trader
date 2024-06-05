@@ -13,6 +13,9 @@ if (stockList) {
       openStockPopup(stockSymbol);
     }
   });
+
+  // Fetch and display stock prices
+  displayStockPrices();
 }
 
 if (balanceElement && myListElement) {
@@ -114,4 +117,15 @@ function getStockPrice(stockSymbol) {
     'MSFT': 300
   };
   return prices[stockSymbol] || 0;
+}
+
+function displayStockPrices() {
+  const stockSymbols = ['AAPL', 'GOOGL', 'MSFT'];
+  stockSymbols.forEach(stockSymbol => {
+    const price = getStockPrice(stockSymbol); // Replace with real API call
+    const priceElement = document.getElementById(`price-${stockSymbol}`);
+    if (priceElement) {
+      priceElement.textContent = price.toFixed(2);
+    }
+  });
 }
