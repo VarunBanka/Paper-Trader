@@ -3,18 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Paper Trader</title>
+  <title>Portfolio</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <div class="container">
-    <h1>Paper Trader</h1>
-    <br>
-    <ul class="stock-list">
-      <li data-stock="AAPL">Apple Inc.</li>
-      <li data-stock="GOOGL">Alphabet Inc.</li>
-      <li data-stock="MSFT">Microsoft Corporation</li>
-    </ul>
+    <h1>My Portfolio</h1>
+    <div class="portfolio">
+      <h2>Portfolio</h2>
+      <p>Balance: $<span id="balance">10000</span></p>
+      <ul id="myList"></ul>
+    </div>
   </div>
   <div class="navigation">
     <button onclick="location.href='index.html'">Home</button>
