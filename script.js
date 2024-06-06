@@ -6,6 +6,7 @@ const balanceElement = document.getElementById('balance');
 const myListElement = document.getElementById('myList');
 
 if (stockList) {
+  populateStockList();
   stockList.addEventListener('click', (event) => {
     const clickedItem = event.target.closest('li');
     if (clickedItem) {
@@ -14,12 +15,20 @@ if (stockList) {
     }
   });
 
-  // Fetch and display stock prices
   displayStockPrices();
 }
 
 if (balanceElement && myListElement) {
   updatePortfolio();
+}
+
+function populateStockList() {
+  stocks.forEach(stock => {
+    const li = document.createElement('li');
+    li.dataset.stock = stock.symbol;
+    li.innerHTML = `${stock.name} - $<span class="stock-price" id="price-${stock.symbol}"></span>`;
+    stockList.appendChild(li);
+  });
 }
 
 function openStockPopup(stockSymbol) {
@@ -70,7 +79,7 @@ function openStockPopup(stockSymbol) {
 }
 
 function buyShares(stockSymbol) {
-  const price = getStockPrice(stockSymbol); // Replace with real API call
+  const price = getStockPrice(stockSymbol); 
   if (balance >= price) {
     balance -= price;
     myList.push(stockSymbol);
@@ -84,7 +93,7 @@ function buyShares(stockSymbol) {
 }
 
 function sellShares(stockSymbol) {
-  const price = getStockPrice(stockSymbol); // Replace with real API call
+  const price = getStockPrice(stockSymbol);
   const index = myList.indexOf(stockSymbol);
   if (index !== -1) {
     balance += price;
@@ -111,21 +120,15 @@ function updatePortfolio() {
 }
 
 function getStockPrice(stockSymbol) {
-  const prices = {
-    'AAPL': 150,
-    'GOOGL': 2800,
-    'MSFT': 300
-  };
-  return prices[stockSymbol] || 0;
+  const stock = stocks.find(s => s.symbol === stockSymbol);
+  return stock ? stock.price : 0;
 }
 
 function displayStockPrices() {
-  const stockSymbols = ['AAPL', 'GOOGL', 'MSFT'];
-  stockSymbols.forEach(stockSymbol => {
-    const price = getStockPrice(stockSymbol); // Replace with real API call
-    const priceElement = document.getElementById(`price-${stockSymbol}`);
+  stocks.forEach(stock => {
+    const priceElement = document.getElementById(`price-${stock.symbol}`);
     if (priceElement) {
-      priceElement.textContent = price.toFixed(2);
+      priceElement.textContent = stock.price.toFixed(2);
     }
   });
 }
