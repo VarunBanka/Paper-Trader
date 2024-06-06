@@ -56,7 +56,10 @@ function openStockPopup(stockSymbol) {
   const moreInfoButton = document.createElement('button');
   moreInfoButton.textContent = 'More Info';
   moreInfoButton.addEventListener('click', () => {
-    console.log('More Info button clicked for', stockSymbol);
+    const stock = stocks.find(s => s.symbol === stockSymbol);
+    const stockName = stock ? stock.name : stockSymbol;
+    const url = `https://www.google.com/search?q=${encodeURIComponent(stockName)} stock`;
+    window.open(url, '_blank');
   });
 
   const closeButton = document.createElement('button');
