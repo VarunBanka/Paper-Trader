@@ -4,6 +4,7 @@ const myList = JSON.parse(localStorage.getItem('myList')) || [];
 const stockList = document.querySelector('.stock-list');
 const balanceElement = document.getElementById('balance');
 const myListElement = document.getElementById('myList');
+const searchInput = document.getElementById('search-input');
 
 if (stockList) {
   populateStockList();
@@ -23,6 +24,7 @@ if (balanceElement && myListElement) {
 }
 
 function populateStockList() {
+  stockList.innerHTML = ''; // Clear existing list
   stocks.forEach(stock => {
     const li = document.createElement('li');
     li.dataset.stock = stock.symbol;
@@ -131,4 +133,30 @@ function displayStockPrices() {
       priceElement.textContent = stock.price.toFixed(2);
     }
   });
+}
+
+function toggleSearch() {
+  if (searchInput.style.display === 'none') {
+    searchInput.style.display = 'block';
+    searchInput.focus();
+  } else {
+    searchInput.style.display = 'none';
+  }
+}
+
+function filterStocks() {
+  const query = searchInput.value.toLowerCase();
+  const filteredStocks = stocks.filter(stock => 
+    stock.name.toLowerCase().includes(query) || stock.symbol.toLowerCase().includes(query)
+  );
+  
+  stockList.innerHTML = '';
+  filteredStocks.forEach(stock => {
+    const li = document.createElement('li');
+    li.dataset.stock = stock.symbol;
+    li.innerHTML = `${stock.name} - $<span class="stock-price" id="price-${stock.symbol}"></span>`;
+    stockList.appendChild(li);
+  });
+  
+  displayStockPrices();
 }

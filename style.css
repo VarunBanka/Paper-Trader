@@ -12,6 +12,27 @@ body {
   padding: 0 10px; /* Added padding for smaller screens */
 }
 
+.search-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.search-icon {
+  font-size: 24px;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+#search-input {
+  width: 80%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
 .stock-list {
   list-style: none;
   padding: 0;

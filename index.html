@@ -9,6 +9,10 @@
 <body>
   <div class="container">
     <h1>Paper Trader</h1>
+    <div class="search-container">
+      <span class="search-icon" onclick="toggleSearch()">🔍</span>
+      <input type="text" id="search-input" placeholder="Search stocks..." oninput="filterStocks()" style="display: none;">
+    </div>
     <br>
     <ul class="stock-list"></ul> <!-- Stock list will be populated by JavaScript -->
   </div>
