@@ -45,12 +45,18 @@ function openStockPopup(stockSymbol) {
   buyButton.textContent = 'Buy Shares';
   buyButton.addEventListener('click', () => {
     buyShares(stockSymbol);
+    popup.remove();
+    const currentDomain = window.location.origin;
+    window.location.href = `${currentDomain}/portfolio`
   });
 
   const sellButton = document.createElement('button');
   sellButton.textContent = 'Sell Shares';
   sellButton.addEventListener('click', () => {
     sellShares(stockSymbol);
+    popup.remove();
+    const currentDomain = window.location.origin;
+    window.location.href = `${currentDomain}/portfolio`
   });
 
   const moreInfoButton = document.createElement('button');
@@ -58,6 +64,7 @@ function openStockPopup(stockSymbol) {
   moreInfoButton.addEventListener('click', () => {
     const stock = stocks.find(s => s.symbol === stockSymbol);
     const stockName = stock ? stock.name : stockSymbol;
+    popup.remove();
     const url = `https://www.google.com/search?q=${encodeURIComponent(stockName)} stock`;
     window.open(url, '_blank');
   });
