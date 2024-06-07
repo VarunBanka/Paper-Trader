@@ -1,5 +1,7 @@
 ## Paper Trader
 
+#### Video Demo: https://youtu.be/ip7D2mJUdRo
+
 **Paper Trader** is a fun and educational stock market simulator app that lets you practice trading in a safe, risk-free environment. Start with a virtual $10,000 (represented by points) and buy and sell virtual stocks to experience the thrill of the market without any real-world consequences. 
 
 This app is ideal for:
