@@ -46,8 +46,7 @@ function openStockPopup(stockSymbol) {
   buyButton.addEventListener('click', () => {
     buyShares(stockSymbol);
     popup.remove();
-    const currentDomain = window.location.origin;
-    window.location.href = `${currentDomain}/portfolio`
+    window.location.href = `https://varunbanka.github.io/paper-trader/portfolio.html`
   });
 
   const sellButton = document.createElement('button');
@@ -55,8 +54,7 @@ function openStockPopup(stockSymbol) {
   sellButton.addEventListener('click', () => {
     sellShares(stockSymbol);
     popup.remove();
-    const currentDomain = window.location.origin;
-    window.location.href = `${currentDomain}/portfolio`
+    window.location.href = `https://varunbanka.github.io/paper-trader/portfolio.html`
   });
 
   const moreInfoButton = document.createElement('button');
