@@ -159,3 +159,71 @@ body {
     margin: 10px 0;
   }
 }
+
+.container {
+  max-width: 800px;
+  margin: 50px auto;
+  padding: 0 20px;
+  text-align: center;
+}
+
+body {
+  font-family: sans-serif;
+  margin: 0;
+  background-color: #222;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh; /* Ensure the body takes at least the full height of the viewport */
+  padding: 20px; /* Add some padding to avoid text touching the edges */
+}
+
+.container {
+  max-width: 800px;
+  width: 100%; /* Ensure container takes the full width available */
+  background-color: #333; /* Move background color here */
+  padding: 1.5em;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  text-align: center;
+}
+
+h1 {
+  font-size: 2em;
+  margin-bottom: 0.5em;
+}
+
+.content {
+  margin: 0 auto; /* Center the content within the container */
+}
+
+p {
+  font-size: 1em;
+  line-height: 1.4;
+  margin-bottom: 1.2em;
+}
+
+h2 {
+  font-size: 1.5em;
+  margin-top: 1.2em;
+  margin-bottom: 0.5em;
+}
+
+.social-media {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 1em;
+}
+
+.social-media a {
+  color: #3498db;
+  font-size: 1.5em;
+  transition: color 0.3s;
+}
+
+.social-media a:hover {
+  color: #2980b9;
+}
+
