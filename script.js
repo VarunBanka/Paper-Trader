@@ -47,7 +47,7 @@ function openStockPopup(stockSymbol) {
     buyShares(stockSymbol);
     popup.remove();
     const currentDomain = window.location.origin;
-    window.location.href = `${currentDomain}/portfolio`
+    window.location.href = `${currentDomain}/paper-trader/portfolio`
   });
 
   const sellButton = document.createElement('button');
@@ -56,7 +56,7 @@ function openStockPopup(stockSymbol) {
     sellShares(stockSymbol);
     popup.remove();
     const currentDomain = window.location.origin;
-    window.location.href = `${currentDomain}/portfolio`
+    window.location.href = `${currentDomain}/paper-trader/portfolio`
   });
 
   const moreInfoButton = document.createElement('button');
